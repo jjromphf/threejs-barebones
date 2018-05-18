@@ -13,4 +13,4 @@ To run (from threejs-barebones directory)
 
 `npm run start`
 
-Open up your [browser](localhost:3000)
+Open up your [browser](http://localhost:3000)
