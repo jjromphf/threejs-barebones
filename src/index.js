@@ -7,13 +7,14 @@ import loadAddOns from './utils';
 // examples
 import drawCube from '../examples/Cube';
 import drawCubeWithLight from '../examples/CubeWithLight';
+import {cubeOnPlane, addLights, changeLightPositions} from '../examples/CubeWithManyLights';
 
 const THREE = loadAddOns(_THREE);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.shadowMap.enabled = true;
 
-let camera, controls, light;
+let camera, controls, lights, cube, plane;
 let scene = new THREE.Scene();
 /*
 * All of our example functions will take scene, camera, mesh, geometry, and material params
@@ -30,16 +31,16 @@ function initCamera() {
 }
 
 function init() {
-  light = drawCubeWithLight(scene);
+  [cube, plane] = cubeOnPlane(scene);
+  lights = addLights(scene, 5);
   initCamera();
 }
 
 function animate() {
   requestAnimationFrame(animate);
-  var time = Date.now() * 0.0005;
-  light.position.x = Math.sin(time) * 2;
-  light.position.y = Math.cos(time) * 2;
-  light.position.z = Math.tan(time) * 2;
+  changeLightPositions(lights);
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.05;
 	renderer.render( scene, camera );
 }
 

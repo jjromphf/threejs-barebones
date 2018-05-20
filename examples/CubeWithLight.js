@@ -17,12 +17,12 @@ export default function drawCubeWithLight(scene) {
 
   light.shadow.mapSize.width = 1024;
 	light.shadow.mapSize.height = 1024;
-	light.shadow.camera.near = 10;
-	light.shadow.camera.far = 50;
+	light.shadow.camera.near = 1;
+	light.shadow.camera.far = 10;
   light.position.set(10,10,10);
+
   light.castShadow = true;
   planeMesh.receiveShadow = true;
-
   boxMesh.castShadow = true;
 
   scene.add(planeMesh);
