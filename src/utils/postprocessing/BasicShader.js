@@ -1,12 +1,10 @@
-const vertexShader = require('../shaders/DisplacementShader.vs');
-const fragmentShader = require('../shaders/DisplacementShader.fs');
+const vertexShader = require('../shaders/BasicShader.vs');
+const fragmentShader = require('../shaders/BasicShader.fs');
 
-const DisplacementShader = {
+const BasicShader = {
 
     uniforms: {
       "tDiffuse": { value: null },
-      "tDisplacement": { value: null },
-      "scale": { value: 1 },
     },
 
     vertexShader: vertexShader,
